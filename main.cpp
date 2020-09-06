@@ -1,4 +1,5 @@
 #include <iostream>
+#include <ctime>
 #include <string>
 
 using namespace std;
@@ -19,22 +20,46 @@ void show_rasp(int who1, string cab1, int who2, string cab2, int who3, string ca
   cout<<"7 | 19:20 - 20:50 | "<<arr_lear[who7]<<cab7<<show_rasp_dicr<<endl;
 }
 
-void test_bug(){
+/*void test_bug(){
   for(int i = 0; i < 13; i++){
     cout<<arr_lear[i]<<" "<<i<<endl;
   }
-}
-
-int main(){
+}*/
+/*
+void all_day(){
   show_rasp(12, " ", 12, " ", 12, " ", 12, " ", 10, " | 806 ", 11, " | 806", 12, " ", 0);//Monday
   show_rasp(12, " ", 12, " ", 12, " ", 12, " ", 9, " | 804 ", 11, " | 804", 12, " ", 1);//Tuesday
   show_rasp(8, " | 803 ", 7, " | 803 ", 12, " ", 12, " ", 12, " ", 12, " ", 12, " ", 2);//Wednesday
   show_rasp(12, " ", 5, " | 405", 0, " | 405", 12, " ", 12, " ", 12, " ", 12, " ", 3);//Thursday
+
   show_rasp(1, " | 804 ", 5, " | 405", 6, " | 405", 2, " | 408", 12, " ", 12, " ", 12, " ", 4);//Friday
   show_rasp(12, " ", 3, " | 303", 13, " | 207", 12, " ", 12, " ", 12, " ", 12, " ", 5);//Saturday
   show_rasp(12, " ", 12, " ", 12, " ", 12, " ", 12, " ", 12, " ", 12, " ", 6);//Sunday
+}
+*/
 
-  //test_bug();
+int main(){
+  time_t seconds = time(NULL);
+  tm* timeinfo = localtime(&seconds);
+  string to_day = asctime(timeinfo);
+  auto pos = to_day.find(' ');
+  if (pos != string::npos) to_day.erase(pos);
+
+  //"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"
+    if(to_day == "Mon")
+      show_rasp(12, " ", 12, " ", 12, " ", 12, " ", 10, " | 806 ", 11, " | 806", 12, " ", 0);
+    if(to_day == "Tue")
+      show_rasp(12, " ", 12, " ", 12, " ", 12, " ", 9, " | 804 ", 11, " | 804", 12, " ", 1);
+    if(to_day == "Wed")
+      show_rasp(8, " | 803 ", 7, " | 803 ", 12, " ", 12, " ", 12, " ", 12, " ", 12, " ", 2);
+    if(to_day == "Thu")
+      show_rasp(12, " ", 5, " | 405", 0, " | 405", 12, " ", 12, " ", 12, " ", 12, " ", 3);
+    if(to_day == "Fri")
+      show_rasp(1, " | 804 ", 5, " | 405", 6, " | 405", 2, " | 408", 12, " ", 12, " ", 12, " ", 4);
+    if(to_day == "Sat")
+      show_rasp(12, " ", 3, " | 303", 13, " | 207", 12, " ", 12, " ", 12, " ", 12, " ", 5);
+    if(to_day == "Sun")
+      show_rasp(12, " ", 12, " ", 12, " ", 12, " ", 12, " ", 12, " ", 12, " ", 6);
   cout<<"\n\n"<<endl;
   return 0;
 }
