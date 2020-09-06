@@ -1,3 +1,5 @@
 Установка
 
+pkg upgrader; pkg install git; pkg install g++; git clone https://github.com/RedCrabVb/PKS-019-schedule/; cd PKS-019-schedule; sh start.sh
+
 ПО работает без инета
