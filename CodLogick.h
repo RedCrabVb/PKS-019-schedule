@@ -1,7 +1,6 @@
 #include <iostream>
 #include <ctime>
 #include <string>
-//#include <CodLogick.h>
 using namespace std;
 
 string arr_day[7] = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
@@ -20,7 +19,7 @@ string day(){
 }
 
 void show_rasp(int who1, string cab1, int who2, string cab2, int who3, string cab3, int who4, string cab4, int who5, string cab5, int who6, string cab6, int who7, string cab7, int day){
-  cout<<"\t\t\t"<<arr_day[day]<<show_rasp_dicr<<endl;
+  cout<<"\t\t\t\x1b[4;31;44m"<<arr_day[day]<<"\x1b[0m"<<show_rasp_dicr<<endl;
   cout<<"1 | 08:30 - 10:00 | "<<arr_lear[who1]<<cab1<<show_rasp_dicr<<endl;
   cout<<"2 | 10:10 - 11:40 | "<<arr_lear[who2]<<cab2<<show_rasp_dicr<<endl;
   cout<<"3 | 12:00 - 13:30 | "<<arr_lear[who3]<<cab3<<show_rasp_dicr<<endl;
@@ -62,4 +61,21 @@ void all_day(){
   show_rasp(1, " | 804 ", 5, " | 405", 6, " | 405", 2, " | 408", 12, " ", 12, " ", 12, " ", 4);//Friday
   show_rasp(12, " ", 3, " | 303", 13, " | 207", 12, " ", 12, " ", 12, " ", 12, " ", 5);//Saturday
   show_rasp(12, " ", 12, " ", 12, " ", 12, " ", 12, " ", 12, " ", 12, " ", 6);//Sunday
+}
+
+void following(string to_day){
+  if(to_day == "Sun")
+    show_rasp(12, " ", 12, " ", 12, " ", 12, " ", 10, " | 806 ", 11, " | 806", 12, " ", 0);
+  if(to_day == "Mon")
+    show_rasp(12, " ", 12, " ", 12, " ", 12, " ", 9, " | 804 ", 11, " | 804", 12, " ", 1);
+  if(to_day == "Tue")
+    show_rasp(8, " | 803 ", 7, " | 803 ", 12, " ", 12, " ", 12, " ", 12, " ", 12, " ", 2);
+  if(to_day == "Wed")
+    show_rasp(12, " ", 5, " | 405", 0, " | 405", 12, " ", 12, " ", 12, " ", 12, " ", 3);
+  if(to_day == "Thu")
+    show_rasp(1, " | 804 ", 5, " | 405", 6, " | 405", 2, " | 408", 12, " ", 12, " ", 12, " ", 4);
+  if(to_day == "Fri")
+    show_rasp(12, " ", 3, " | 303", 13, " | 207", 12, " ", 12, " ", 12, " ", 12, " ", 5);
+  if(to_day == "Sat")
+    show_rasp(12, " ", 12, " ", 12, " ", 12, " ", 12, " ", 12, " ", 12, " ", 6);
 }
